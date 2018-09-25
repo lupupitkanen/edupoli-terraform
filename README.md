@@ -1,3 +1,5 @@
+# Edupoli Terraform-harjoitus
+
 Harjoitellaan terraform infra-automaatiota perustamalla virtuaalipalvelin Google Cloud Platform -alustalle Haminaan ja osoittamalla verkkotunnus siihen Cloudflaren avulla.
 
 ## Kloonaa harjoitusprojekti
