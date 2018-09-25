@@ -87,7 +87,7 @@ https://github.com/new
 ```
 git add .
 git commit -m "first commit"
-git remote add origin git@github.com:omanimi/omaprojekti.git
+git remote set-url origin git@github.com:omanimi/omaprojekti.git
 git push -u origin master
 ```
 
