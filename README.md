@@ -31,6 +31,8 @@ cloudflare_token = ""
 cloudflare_domain = ""
 ```
 
+Tiedosto terraform.tfvars luodaan samaan projektihakemistoon missä on myös .tf ja muut tiedostot.
+
 ### Tai ympäristömuuttujina komentorivillä
 
 ```
