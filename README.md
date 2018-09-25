@@ -15,7 +15,9 @@ git init
 
 ## Muuttujat
 
+- project_name: Valitsemasi nimi projektille Google Cloud Platformissa
 - billing_account: [Google Cloud Console](https://console.cloud.google.com/) -> Billing -> Billing account ID
+- cloudflare_email: Cloudflare-tilin sähköpostiosoitteesi
 - cloudflare_token: [Cloudflare](https://dash.cloudflare.com/) -> My Profile -> API Keys -> Global API Key
 - cloudflare_domain: Oma domain nimesi, esim. sinundomain.tk
 
@@ -36,7 +38,7 @@ export TF_VAR_project_name=
 export TF_VAR_billing_account=
 export TF_VAR_cloudflare_email=
 export TF_VAR_cloudflare_token=
-export cloudflare_domain=
+export TF_VAR_cloudflare_domain=
 ```
 
 ## Google Cloud Platform kirjautuminen
@@ -51,6 +53,8 @@ terraform init
 terraform plan
 terraform apply
 ```
+
+Testaa aukeaako selaimella omalla domainillasi nginx web-palvelimen oletussivu.
 
 ### Lisäkomentoja
 ```
