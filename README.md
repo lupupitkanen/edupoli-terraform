@@ -1,17 +1,30 @@
-### Google Cloud Platform kirjautuminen
+Harjoitellaan terraform infra-automaatiota perustamalla virtuaalipalvelin Google Cloud Platform -alustalle Haminaan ja osoittamalla verkkotunnus siihen Cloudflaren avulla.
+
+## Kloonaa harjoitusprojekti
 
 ```
-gcloud auth application-default login
+cd
+mkdir projects
+cd projects
+git clone git@github.com:lupupitkanen/edupoli-terraform.git
+cd edupoli-terraform
+git init
 ```
 
-### Muuttujat tiedostoon terraform.tfvars
+## Muuttujat
+
+- billing_account: [Google Cloud Console](https://console.cloud.google.com/) -> Billing -> Billing account ID
+- cloudflare_token: [Cloudflare](https://dash.cloudflare.com/) -> My Profile -> API Keys -> Global API Key
+- cloudflare_domain: Oma domain nimesi, esim. sinundomain.tk
+
+### Tiedostoon terraform.tfvars
 
 ```
-project_name = "eduterra"
-billing_account = "01DA9D-28A34C-A62045"
-cloudflare_email = "lupu.pitkanen@gmail.com"
-cloudflare_token = "a06cbcd86993a96bf88684b0c8f0f8ac031aa"
-cloudflare_domain = "luputestaa3.tk"
+project_name = ""
+billing_account = ""
+cloudflare_email = ""
+cloudflare_token = ""
+cloudflare_domain = ""
 ```
 
 ### Tai ympäristömuuttujina komentorivillä
@@ -23,3 +36,51 @@ export TF_VAR_cloudflare_email=
 export TF_VAR_cloudflare_token=
 export cloudflare_domain=
 ```
+
+## Google Cloud Platform kirjautuminen
+
+```
+gcloud auth application-default login
+```
+
+## Terraform komennot
+```
+terraform init
+terraform plan
+terraform apply
+```
+
+### Lisäkomentoja
+```
+# Katso outputit
+terraform output
+
+# Kirjaudu palvelimelle
+ssh <ip-osoite>
+
+# Vaihda palvelimen tyyppi/koko
+export TF_VAR_machine_type=n1-standard-2
+terraform plan
+terraform apply
+
+# POISTA KAIKKI
+terraform destroy
+
+# Luo uudlleen puhtaalta pöydältä
+
+terraform plan
+terraform apply
+```
+
+### Perusta oma projekti GitHubiin
+
+https://github.com/new
+
+```
+git add .
+git commit -m "first commit"
+git remote add origin git@github.com:omanimi/omaprojekti.git
+git push -u origin master
+```
+
+Huomaa oma tunnus ja valitsemasi projektin nimi!
